@@ -3,7 +3,7 @@ require('dotenv').config()
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
-const dbConnection = require('./src/helpers/db-connection')
+const { dbConnection } = require('./src/helpers')
 
 const { userRoute } = require("./src/user")
 const { authRoute } = require("./src/auth")
@@ -21,7 +21,7 @@ app.use("/auth", authRoute)
 
 
 // Connect db
-dbConnection.connectMongoDB()
+// dbConnection.connectMongoDB()
 
 app.listen(PORT, () => {
   console.log(`Serving on port ${PORT}`)
